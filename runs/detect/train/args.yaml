@@ -1,10 +1,11 @@
 task: detect
 mode: train
 model: yolov8m.pt
-data: C:\Users\Lenovo\Downloads\Mask-Detection-YOLOv8.v17i.yolov8\data.yaml
-epochs: 1
+data: /content/drive/MyDrive/yolov8_dataset/data.yaml
+epochs: 100
+time: null
 patience: 20
-batch: 64
+batch: 25
 imgsz: 640
 save: true
 save_period: -1
@@ -15,7 +16,7 @@ project: null
 name: train
 exist_ok: false
 pretrained: true
-optimizer: Adam
+optimizer: SGD
 verbose: true
 seed: 0
 deterministic: true
@@ -28,6 +29,7 @@ amp: true
 fraction: 1.0
 profile: false
 freeze: null
+multi_scale: false
 overlap_mask: true
 mask_ratio: 4
 dropout: 0.0
@@ -49,6 +51,7 @@ augment: false
 agnostic_nms: false
 classes: null
 retina_masks: false
+embed: null
 show: false
 save_frames: false
 save_txt: false
@@ -94,6 +97,9 @@ fliplr: 0.5
 mosaic: 1.0
 mixup: 0.0
 copy_paste: 0.0
+auto_augment: randaugment
+erasing: 0.4
+crop_fraction: 1.0
 cfg: null
 tracker: botsort.yaml
-save_dir: runs\detect\train
+save_dir: runs/detect/train
